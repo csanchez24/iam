@@ -1,0 +1,34 @@
+{
+  "version": "6",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1718820383907,
+      "tag": "0000_lonely_reptil",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1718946197922,
+      "tag": "0001_useful_skin",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1721058521893,
+      "tag": "0002_lazy_quentin_quire",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1721058674555,
+      "tag": "0003_slow_santa_claus",
+      "breakpoints": true
+    }
+  ]
+}

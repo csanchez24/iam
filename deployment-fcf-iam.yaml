@@ -1,0 +1,173 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: #{NombreAppDocker}#
+  namespace: #{NameSpaceAppDocker}#
+  labels:
+    name: #{NombreAppDocker}#
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate # dos replicas o mas
+    #type: Recreate # una replica
+  selector:
+    matchLabels:
+      app: #{NombreAppDocker}#
+  template:
+    metadata:
+      labels:
+        app: #{NombreAppDocker}#
+        version: v#{WS_VERSION}#
+    spec:
+      containers:
+        - name: #{NombreAppDocker}#
+          image: #{NombreImagen}#
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          # readinessProbe:
+          #     httpGet:
+          #       path: /healthz  Ruta de readiness en tu aplicación
+          #       port: 80
+          #     initialDelaySeconds: 5  Retraso inicial antes de que comience la sonda
+          #     periodSeconds: 10        Frecuencia de revisión de readiness
+          #     successThreshold: 1
+          #     failureThreshold: 5
+          # livenessProbe:
+          #     httpGet:
+          #       path: /healthz   Ruta de liveness en tu aplicación
+          #       port: 80
+          #     initialDelaySeconds: 10  Retraso inicial antes de que comience la sonda
+          #     periodSeconds: 20
+          #     successThreshold: 1
+          #     failureThreshold: 3
+          env:
+            - name: NODE_ENV
+              value: '#{NODE_ENV}#'
+            - name: DATABASE_URL
+              value: '#{DATABASE_URL}#'
+            - name: NEXT_PUBLIC_API_URL
+              value: '#{NEXT_PUBLIC_API_URL}#'
+            - name: NEXT_PUBLIC_APP_URL
+              value: '#{NEXT_PUBLIC_APP_URL}#'
+            - name: FCF_IAM_API_URL
+              value: '#{FCF_IAM_API_URL}#'
+            - name: FCF_IAM_CLIENT_ID
+              value: '#{FCF_IAM_CLIENT_ID}#'
+            - name: FCF_IAM_CLIENT_SECRET
+              value: '#{FCF_IAM_CLIENT_SECRET}#'
+            - name: FCF_IAM_APP_URL
+              value: '#{FCF_IAM_APP_URL}#'
+            - name: FCF_IAM_APP_CALLBACK_URL
+              value: '#{FCF_IAM_APP_CALLBACK_URL}#'
+            - name: FCF_IAM_POST_LOGIN_REDIRECT_URL
+              value: '#{FCF_IAM_POST_LOGIN_REDIRECT_URL}#'
+            - name: FCF_IAM_POST_LOGOUT_REDIRECT_URL
+              value: '#{FCF_IAM_POST_LOGOUT_REDIRECT_URL}#'
+            - name: FCF_IAM_ISSUER_URL
+              value: '#{FCF_IAM_ISSUER_URL}#'
+            - name: FCF_SMTP_SERVER
+              value: '#{FCF_SMTP_SERVER}#'
+
+      imagePullSecrets:
+        - name: docker-hub-comfenalco
+
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-#{NombreAppDocker}#
+  namespace: #{NameSpaceAppDocker}#
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: #{NombreAppDocker}#
+  minReplicas: 1
+  maxReplicas: 1
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: AverageValue
+          averageValue: 500Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: serv-#{NombreAppDocker}#
+  namespace: #{NameSpaceAppDocker}#
+  labels:
+    name: #{NombreAppDocker}#
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  selector:
+    app: #{NombreAppDocker}#
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing-#{NombreAppDocker}#
+  namespace: #{NameSpaceAppDocker}#
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+spec:
+  tls:
+    - secretName: #{NombreCertificado}#
+  rules:
+    - host: #{NombreSitio}#
+      http:
+        paths:
+          - path: #{AmbientePublicacion}#
+            pathType: Prefix
+            backend:
+              service:
+                name: serv-#{NombreAppDocker}#
+                port:
+                  number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: IngressAKS
+metadata:
+  name: ing-#{NombreAppDocker}#
+  namespace: #{NameSpaceAppDocker}#
+  annotations:
+    appgw.ingress.kubernetes.io/backend-path-prefix: '/'
+    appgw.ingress.kubernetes.io/request-timeout: '999'
+    appgw.ingress.kubernetes.io/health-probe-timeout: '30'
+    appgw.ingress.kubernetes.io/health-probe-path: '#{RutaHealthCheck}#'
+    appgw.ingress.kubernetes.io/appgw-ssl-certificate: 'wildcardconfenalco2024'
+    appgw.ingress.kubernetes.io/ssl-redirect: 'true'
+    appgw.ingress.kubernetes.io/health-probe-status-codes: '200-399, 401,404,500-600'
+spec:
+  ingressClassName: azure-application-gateway
+  rules:
+    - host: #{NombreSitioAKS}#
+      http:
+        paths:
+          - path: #{AmbientePublicacion}#
+            pathType: Prefix
+            backend:
+              service:
+                name: serv-#{NombreAppDocker}#
+                port:
+                  number: 80

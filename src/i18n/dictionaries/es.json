@@ -1,0 +1,539 @@
+{
+  "misc": {
+    "themeToggle": {
+      "key": "Alternar tema",
+      "values": {
+        "light": "Claro",
+        "dark": "Oscuro",
+        "system": "Sistema"
+      }
+    },
+    "settings": {
+      "dropdown": {
+        "logout": "Cerrar sesión"
+      }
+    },
+    "table": {
+      "pagination": {
+        "rowsPerPage": "Filas por página",
+        "pageOf": {
+          "page": "Página",
+          "of": "de"
+        }
+      }
+    },
+    "dialogs": {
+      "delete": {
+        "title": "Estas seguro?",
+        "description": "Esta acción es irreversible. ¡Los registros de usuario y relacionados no serán recuperables una vez eliminados!",
+        "buttons": {
+          "cancel": "Cancelar",
+          "continue": "Continuar"
+        }
+      },
+      "unsaved": {
+        "title": "Cambios no guardados",
+        "description": "Tiene cambios sin guardar. Guarde para conservar los cambios; de lo contrario, puede descartar el mensaje.",
+        "buttons": {
+          "save": "Guardar",
+          "discard": "Desechar"
+        }
+      }
+    },
+    "buttons": {
+      "save": "Guardar"
+    },
+    "nav": {
+      "users": "Usuario",
+      "applications": "Aplicaciones",
+      "roles": "Roles"
+    }
+  },
+  "auth": {
+    "login": {
+      "description": "Inicie sesión en su cuenta para acceder a la aplicación",
+      "form": {
+        "email": {
+          "placeholder": "account@example.com"
+        },
+        "password": {
+          "placeholder": "Introducir la contraseña"
+        },
+        "buttons": {
+          "continue": "Continuar con credenciales"
+        },
+        "forgotPassword": "¿Has olvidado tu contraseña?"
+      }
+    },
+    "passwordReset": {
+      "heading": "¿Has olvidado tu contraseña?",
+      "description": "Ingrese su dirección de correo electrónico y le enviaremos instrucciones para restablecer su contraseña.",
+      "form": {
+        "email": {
+          "placeholder": "account@example.com"
+        },
+        "buttons": {
+          "continue": "Continuar"
+        },
+        "backToLogin": "Atrás para iniciar sesión"
+      }
+    },
+    "passwordResetCode": {
+      "heading": "Código de verificación",
+      "description": "Se envió un código de verificación a",
+      "form": {
+        "otp": {
+          "label": "Código de verificación de restablecimiento de contraseña",
+          "description": "Por favor ingrese el código de verificación enviado a su correo electrónico."
+        },
+        "buttons": {
+          "continue": "Continuar"
+        }
+      }
+    },
+    "passwordResetConfirm": {
+      "heading": "Nueva contraseña",
+      "description": "Ingrese la nueva contraseña y confirme los cambios antes de continuar.",
+      "form": {
+        "password": {
+          "label": "Ingrese nueva contraseña",
+          "placeholder": "Introducir la contraseña"
+        },
+        "confirmNewPassword": {
+          "label": "Confirmar nueva contraseña",
+          "placeholder": "Ingrese la confirmación de contraseña"
+        },
+        "buttons": {
+          "continue": "Continue"
+        }
+      }
+    }
+  },
+  "users": {
+    "layout": {
+      "title": "usuarios"
+    },
+    "buttons": {
+      "new": "Nuevo usuario"
+    },
+    "table": {
+      "columns": {
+        "firstName": "Primer nombre",
+        "middleName": "Segundo nombre",
+        "lastName": "Apellido",
+        "email": "Correo",
+        "phone": "Teléfono",
+        "status": {
+          "key": "Estado",
+          "values": ["Activo", "Inactivo"]
+        },
+        "actions": {
+          "edit": "Editar",
+          "delete": "Borrar"
+        }
+      },
+      "toolbar": {
+        "searchFilter": {
+          "input": {
+            "placeholder": "Filtre los resultados..."
+          }
+        },
+        "view": {
+          "view": "Vista",
+          "toggleColumns": {
+            "key": "Alternar columnas",
+            "values": {
+              "firstName": "Primer nombre",
+              "middleName": "Segundo nombre",
+              "lastName": "Apellido",
+              "email": "Correo",
+              "phone": "Teléfono",
+              "isActive": "Estado",
+              "actions": "Acciones"
+            }
+          }
+        }
+      }
+    },
+    "form": {
+      "headings": {
+        "new": "Nuevo usuario",
+        "update": "Usuario"
+      },
+      "description": "Proporcione la información requerida y guárdela cuando haya terminado",
+      "buttons": {
+        "save": "Guardar"
+      },
+      "tabs": {
+        "primaryInfomation": "Información primaria",
+        "roles": "roles"
+      },
+      "dialogs": {
+        "create": {
+          "title": "Nueva etiqueta",
+          "description": "Complete las entradas y haga clic en guardar cuando haya terminado."
+        },
+        "delete": {
+          "title": "Estas seguro?",
+          "description": "Esta acción es irreversible. ¡Los registros de usuario y relacionados no serán recuperables una vez eliminados!",
+          "buttons": {
+            "cancel": "Cancelar",
+            "continue": "Continuar"
+          }
+        },
+        "unsaved": {
+          "title": "Cambios no guardados",
+          "description": "Tiene cambios sin guardar. Guarde para conservar los cambios; de lo contrario, puede descartar el mensaje.",
+          "buttons": {
+            "save": "Guardar",
+            "discard": "Desechar"
+          }
+        }
+      },
+      "info": {
+        "heading": "Información primaria",
+        "description": "Esta sección incluye los principales campos necesarios para crear un nuevo usuario.",
+        "firstName": {
+          "label": "Primer nomber",
+          "placeholder": "Ingrese primer nomber",
+          "description": "Proporcione un nombre válido para identificar al usuario."
+        },
+        "middleName": {
+          "label": "Segundo nomber",
+          "placeholder": "Ingrese segundo nomber",
+          "description": "Proporcione el segundo nombre del usuario, si corresponde."
+        },
+        "lastName": {
+          "label": "Apellido",
+          "placeholder": "Ingrese apellido",
+          "description": "Proporcione un apellido válido para identificar al usuario."
+        },
+        "email": {
+          "label": "Correo",
+          "placeholder": "Ingrese correo",
+          "description": "El correo electrónico debe ser único. Esta será la principal clave de identificación del usuario."
+        },
+        "password": {
+          "label": "Contraseña",
+          "placeholder": "Ingrese contraseña",
+          "description": "Proporcione una contraseña de usuario con una longitud superior a 6."
+        },
+        "phone": {
+          "label": "Teléfono",
+          "placeholder": "Ingrese teléfono",
+          "description": "Aunque este campo no es obligatorio, ¡se recomienda!"
+        },
+        "labels": {
+          "label": "Etiquetas",
+          "placeholder": "Seleccionar etiquetas...",
+          "empty": "No se han encontrado resultados.",
+          "createNew": "Crear nueva etiqueta",
+          "description": "Asignar etiquetas al usuario (por ejemplo, administrador, empleado, ...) Las etiquetas nos ayudan a clasificar mejor al usuario para otorgar/limitar el acceso a los servicios.",
+          "input": {
+            "placeholder": "Filtrar etiquetas"
+          }
+        },
+        "isActive": {
+          "label": "Está activo",
+          "placeholder": "",
+          "description": "Modificar el acceso del usuario a todos los servicios. Si está inactivo bloquearemos el acceso inmediato."
+        },
+        "isAdmin": {
+          "label": "Es administrador",
+          "placeholder": "",
+          "description": "El usuario con esto marcado como administrador tiene acceso a todos los servicios independientemente de los roles."
+        },
+        "isSuperAdmin": {
+          "label": "Es superadministrador",
+          "placeholder": "",
+          "description": "Este es el nivel de acceso más alto que un usuario puede obtener. Podrán gestionar todo, incluida la eliminación de otros administradores."
+        }
+      },
+      "roles": {
+        "heading": "Roles asignados",
+        "description": "En esta sección, puede acceder a listas de roles disponibles y asignarlos/desasignarlos a los usuarios según sea necesario.",
+        "buttons": {
+          "addRole": "Agregar rol"
+        },
+        "select": {
+          "button": "Seleccione rol",
+          "empty": "No se encontró ningún rol",
+          "input": {
+            "placeholder": "Buscar roles..."
+          }
+        }
+      },
+      "label": {
+        "heading": "Nueva etiqueta",
+        "description": "Complete las entradas y haga clic en guardar cuando haya terminado.",
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Ingrese nombre",
+          "description": "Dar contexto sobre lo que este permiso ve o modifica"
+        },
+        "desc": {
+          "label": "Descripción",
+          "placeholder": "Ingrese descripción",
+          "description": "Brinde contexto para ayudar a las etiquetas a comprender este permiso y el efecto que tendrá."
+        },
+        "buttons": {
+          "cancel": "Cancelar",
+          "save": "Guardar"
+        }
+      }
+    }
+  },
+  "applications": {
+    "layout": {
+      "title": "aplicaciones"
+    },
+    "buttons": {
+      "new": "Nueva aplicación"
+    },
+    "table": {
+      "columns": {
+        "name": "Nombre",
+        "domain": "Dominio",
+        "description": "Descripción",
+        "createdAt": "Fecha de creación",
+        "actions": {
+          "edit": "Editar",
+          "delete": "Borrar"
+        }
+      },
+      "toolbar": {
+        "searchFilter": {
+          "input": {
+            "placeholder": "Filtre los resultados..."
+          }
+        },
+        "view": {
+          "view": "Vista",
+          "toggleColumns": {
+            "key": "Alternar columnas",
+            "values": {
+              "name": "Nombre",
+              "domain": "Dominio",
+              "description": "Descripción",
+              "createdAt": "Fecha de creación",
+              "actions": "Acciones"
+            }
+          }
+        }
+      }
+    },
+    "form": {
+      "headings": {
+        "new": "Nueva aplicación",
+        "update": "Aplicación"
+      },
+      "description": "Proporcione la información requerida y guárdela cuando haya terminado",
+      "buttons": {
+        "save": "Guardar"
+      },
+      "tabs": {
+        "primaryInfomation": "información primaria",
+        "callbackUrls": "URL de devolución",
+        "tokens": "tokens",
+        "permissions": "permisos"
+      },
+      "info": {
+        "heading": "Información primaria",
+        "description": "Esta sección incluye los principales campos necesarios para crear una nueva solicitud.",
+        "clientId": {
+          "label": "Identificación del cliente",
+          "placeholder": "Ingrese la identificación del cliente",
+          "description": "Este es un identificador único de solo lectura necesario al completar el flujo de autenticación."
+        },
+        "secretId": {
+          "label": "Identificación secreta",
+          "placeholder": "Ingrese la identificación secreta",
+          "description": "El secreto es de sólo lectura. Lo generamos al crear una nueva aplicación."
+        },
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Ingrese el nombre",
+          "description": "Este campo es totalmente representacional. Esto es lo que verá el usuario."
+        },
+        "domain": {
+          "label": "Dominio",
+          "placeholder": "Ingrese el dominio",
+          "description": "¿Dónde se puede encontrar esta aplicación?"
+        },
+        "desc": {
+          "label": "Descripción",
+          "placeholder": "Introduce la descripción",
+          "description": "Explique en pocas palabras el propósito de esta aplicación."
+        }
+      },
+      "callbackUrls": {
+        "heading": "URL de devolución",
+        "description": "Esta sección incluye todo lo necesario para el flujo de autenticación.",
+        "applicationHomepageURI": {
+          "label": "URI de la página de inicio de la aplicación",
+          "placeholder": "Ingrese el URI de la página de inicio",
+          "description": "El enlace de la página de inicio a su aplicación. P.ej. https://app.tuapp.com. Se abre al hacer clic en el logotipo y para otras acciones de vínculo de retroceso."
+        },
+        "applicationLoginURI": {
+          "label": "URI de inicio de sesión de la aplicación",
+          "placeholder": "Ingrese el URI de inicio de sesión",
+          "description": "La ruta de inicio de sesión predeterminada para resolver problemas de sesión. Permite a los usuarios redirigir a la página de inicio de sesión de la aplicación a través del punto final /auth. P.ej. https://app.yourapp.com/api/auth/login"
+        },
+        "allowedCallbackURL": {
+          "label": "URL de devolución permitidas",
+          "placeholder": "Ingrese la URL de devolución permitidas",
+          "description": "Estos son los URI de redireccionamiento a los que se puede enviar al usuario después de la autenticación. Agregue cada URL en una nueva línea."
+        },
+        "allowedLogoutRedirectURLs": {
+          "label": "URL de redireccionamiento de cierre de sesión permitidas",
+          "placeholder": "Ingrese la URL de cierre de sesión",
+          "description": "Estas son las URL a las que se puede enviar al usuario después de cerrar sesión. Agregue cada URL en una nueva línea."
+        }
+      },
+      "tokens": {
+        "heading": "Tokens",
+        "description": "Los tokens son una forma para que las aplicaciones realicen procesos de autorización y autenticación sin necesidad de que el usuario vuelva a ingresar sus credenciales.",
+        "howDoesTokenExpiryWorks": "¿Cómo funciona la caducidad del token?",
+        "howDoesTokenExpiryWorksDescription": "Defina cuánto duran los tokens antes de que sea necesario volver a emitirlos o actualizarlos. 3.600 segundos = 1 hora y 86.400 segundos = 1 día.",
+        "IdTokenExpiry": {
+          "label": "Caducidad del token de identificación",
+          "placeholder": "Introduzca la caducidad del token de identificación",
+          "description": "Los tokens de identificación confirman la autenticación del usuario y contienen datos básicos del perfil del usuario."
+        },
+        "accessTokenExpiry": {
+          "label": "Caducidad del token de acceso",
+          "placeholder": "Introduzca la caducidad del token de acceso",
+          "description": "Los tokens de acceso confirman que la aplicación ha sido autorizada. Úselos para llamar a una API o verificar si el cliente tiene acceso a un recurso."
+        },
+        "refreshTokenExpiry": {
+          "label": "Actualizar el vencimiento del token",
+          "placeholder": "Introduzca la caducidad del token de actualización",
+          "description": "Los tokens de actualización permiten que la aplicación obtenga nuevos tokens de acceso sin tener que pedirles a los usuarios que inicien sesión nuevamente."
+        }
+      },
+      "permissions": {
+        "heading": "Permisos de aplicación",
+        "description": "Enumere y/o agregue permisos (acción:recurso) a la aplicación.",
+        "buttons": {
+          "addPermission": "Agregar permiso"
+        },
+        "table": {
+          "columns": {
+            "key": "Llave",
+            "name": "Nombre",
+            "description": "Descripción",
+            "actions": {
+              "edit": "Editar",
+              "delete": "Borrar"
+            }
+          },
+          "empty": "No hay nada aquí. ¡Agrega tu primer permiso!"
+        },
+        "dialog": {
+          "title": "Nuevo permiso",
+          "description": "Complete las entradas y haga clic en guardar cuando haya terminado.",
+          "fields": {
+            "key": {
+              "label": "Llave",
+              "placeholder": "Ingrese llave",
+              "description": "Definir cómo se hará referencia a esta clave en el código."
+            },
+            "name": {
+              "label": "Nombre",
+              "placeholder": "Ingrese nombre",
+              "description": "Dar contexto sobre lo que este permiso ve o modifica"
+            },
+            "description": {
+              "label": "Descripción",
+              "placeholder": "Ingrese descripción",
+              "description": "Brinde contexto para ayudar a los usuarios a comprender este permiso y el efecto que tendrá."
+            }
+          },
+          "buttons": {
+            "add": "Agregar",
+            "cancel": "Cancelar"
+          }
+        }
+      }
+    }
+  },
+  "roles": {
+    "layout": {
+      "title": "roles"
+    },
+    "buttons": {
+      "new": "Nuevo rol"
+    },
+    "table": {
+      "misc": {
+        "policies": "pólizas"
+      },
+      "columns": {
+        "name": "Nombre",
+        "description": "Descripción",
+        "application": "Aplicación",
+        "actions": {
+          "edit": "Editar",
+          "delete": "Borrar"
+        }
+      },
+      "toolbar": {
+        "searchFilter": {
+          "input": {
+            "placeholder": "Filtre los resultados..."
+          }
+        },
+        "view": {
+          "view": "Vista",
+          "toggleColumns": {
+            "key": "Alternar columnas",
+            "values": {
+              "name": "Nombre",
+              "description": "Descripción",
+              "application": "Aplicación",
+              "actions": "Acciones"
+            }
+          }
+        }
+      }
+    },
+    "form": {
+      "headings": {
+        "new": "Nuevo rol",
+        "update": "Rol"
+      },
+      "description": "Proporcione la información requerida y guárdela cuando haya terminado",
+      "buttons": {
+        "save": "Guardar"
+      },
+      "tabs": {
+        "primaryInfomation": "información primaria",
+        "applicationPolicies": "pólizas de aplicación"
+      },
+      "info": {
+        "heading": "Información primaria",
+        "description": "Esta sección incluye los principales campos necesarios para crear un nuevo rol.",
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Ingrese nombre",
+          "description": "Este campo es totalmente representacional. Esto es lo que verá el usuario."
+        },
+        "desc": {
+          "label": "Descripción",
+          "placeholder": "Introduce la descripción",
+          "description": "Explique en pocas palabras el propósito de esta aplicación."
+        }
+      },
+      "policies": {
+        "heading": "Pólizas de aplicación",
+        "description": "Esta sección configura las reglas/políticas de acceso para la aplicación asociada y sus permisos.",
+        "selectApplication": {
+          "label": "Seleccione aplicación",
+          "placeholder": "Búsque aplicación...",
+          "description": "",
+          "empty": "No se encontró ninguna aplicación."
+        }
+      }
+    }
+  }
+}

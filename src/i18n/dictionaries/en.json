@@ -1,0 +1,539 @@
+{
+  "misc": {
+    "themeToggle": {
+      "key": "Toggle theme",
+      "values": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      }
+    },
+    "settings": {
+      "dropdown": {
+        "logout": "Logout"
+      }
+    },
+    "table": {
+      "pagination": {
+        "rowsPerPage": "Rows per page",
+        "pageOf": {
+          "page": "Page",
+          "of": "of"
+        }
+      }
+    },
+    "dialogs": {
+      "delete": {
+        "title": "Are you sure?",
+        "description": "This action is irreversible. Entity and related records won&apos;t be recoverable once deleted!",
+        "buttons": {
+          "cancel": "Cancel",
+          "continue": "Continue"
+        }
+      },
+      "unsaved": {
+        "title": "Unsaved changes",
+        "description": "You have unsaved changes. Save to persist changes otherwise you can discard message.",
+        "buttons": {
+          "save": "Save",
+          "discard": "Discard"
+        }
+      }
+    },
+    "buttons": {
+      "save": "Save"
+    },
+    "nav": {
+      "users": "Users",
+      "applications": "Applictions",
+      "roles": "Roles"
+    }
+  },
+  "auth": {
+    "login": {
+      "description": "Login to your account to access the application",
+      "form": {
+        "email": {
+          "placeholder": "account@example.com"
+        },
+        "password": {
+          "placeholder": "Enter password"
+        },
+        "buttons": {
+          "continue": "Continue with credentials"
+        },
+        "forgotPassword": "Forgot password?"
+      }
+    },
+    "passwordReset": {
+      "heading": "Forgot Your Password?",
+      "description": "Enter your email address and we will send you instructions to reset your password.",
+      "form": {
+        "email": {
+          "placeholder": "account@example.com"
+        },
+        "buttons": {
+          "continue": "Continue"
+        },
+        "backToLogin": "Back to Login"
+      }
+    },
+    "passwordResetCode": {
+      "heading": "Verification code",
+      "description": "A verification code was sent to",
+      "form": {
+        "otp": {
+          "label": "Password reset verification code",
+          "description": "Please enter the verification code sent to your email."
+        },
+        "buttons": {
+          "continue": "Continue"
+        }
+      }
+    },
+    "passwordResetConfirm": {
+      "heading": "New password",
+      "description": "Enter new password and confirm changes before proceeding.",
+      "form": {
+        "password": {
+          "label": "Enter new password",
+          "placeholder": "Enter password"
+        },
+        "confirmNewPassword": {
+          "label": "Confirm new password",
+          "placeholder": "Enter password confirmation"
+        },
+        "buttons": {
+          "continue": "Continue"
+        }
+      }
+    }
+  },
+  "users": {
+    "layout": {
+      "title": "users"
+    },
+    "buttons": {
+      "new": "New user"
+    },
+    "table": {
+      "columns": {
+        "firstName": "First name",
+        "middleName": "Middle name",
+        "lastName": "Last name",
+        "email": "Email",
+        "phone": "Phone",
+        "status": {
+          "key": "Status",
+          "values": ["Active", "Inactive"]
+        },
+        "actions": {
+          "edit": "Edit",
+          "delete": "Delete"
+        }
+      },
+      "toolbar": {
+        "searchFilter": {
+          "input": {
+            "placeholder": "Filter results..."
+          }
+        },
+        "view": {
+          "view": "View",
+          "toggleColumns": {
+            "key": "Toggle columns",
+            "values": {
+              "firstName": "First name",
+              "middleName": "Middle name",
+              "lastName": "Last name",
+              "email": "Email",
+              "phone": "Phone",
+              "isActive": "Status",
+              "actions": "Actions"
+            }
+          }
+        }
+      }
+    },
+    "form": {
+      "headings": {
+        "new": "New user",
+        "update": "User"
+      },
+      "description": "Provide required information and save when done",
+      "buttons": {
+        "save": "Save"
+      },
+      "tabs": {
+        "primaryInfomation": "primary infomation",
+        "roles": "roles"
+      },
+      "dialogs": {
+        "create": {
+          "title": "New label",
+          "description": "Fill in the inputs and click save when you&apos;re done."
+        },
+        "delete": {
+          "title": "Are you sure?",
+          "description": "This action is irreversible. User and related records won&apos;t be recoverable once deleted!",
+          "buttons": {
+            "cancel": "Cancel",
+            "continue": "Continue"
+          }
+        },
+        "unsaved": {
+          "title": "Unsaved changes",
+          "description": "You have unsaved changes. Save to persist changes otherwise you can discard message.",
+          "buttons": {
+            "save": "Save",
+            "discard": "Discard"
+          }
+        }
+      },
+      "info": {
+        "heading": "Primary information",
+        "description": "This section includes the main fields required to create a new user.",
+        "firstName": {
+          "label": "First name",
+          "placeholder": "Enter first name",
+          "description": "Provide a valid first name to identify user."
+        },
+        "middleName": {
+          "label": "Middle name",
+          "placeholder": "Enter middle name",
+          "description": "Provide user&apos;s middle name if any."
+        },
+        "lastName": {
+          "label": "Last name",
+          "placeholder": "Enter last name",
+          "description": "Provide a valid last name to identify user."
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter email",
+          "description": "Email must be unique. This will be the user&apos;s main key of identification."
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter password",
+          "description": "Provice a user&apos;s password with length greater than 6."
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Enter phone",
+          "description": "Even though this field is not required, it is recommended!"
+        },
+        "labels": {
+          "label": "Labels",
+          "placeholder": "Select labels...",
+          "empty": "No results found.",
+          "createNew": "Create New Label",
+          "description": "Assign labels to the user (e.g. admin, employee, ...) Labels helps us better classify the user in order to grant/limit access to services.",
+          "input": {
+            "placeholder": "Filter labels"
+          }
+        },
+        "isActive": {
+          "label": "Is active",
+          "placeholder": "",
+          "description": "Modify user&apos;s access to all services. If inactive we will block immediate access."
+        },
+        "isAdmin": {
+          "label": "Is admin",
+          "placeholder": "",
+          "description": "User with this marked as admin is granted access to all services regardless of the roles."
+        },
+        "isSuperAdmin": {
+          "label": "Is super admin",
+          "placeholder": "",
+          "description": "This is highest access level a user can obtained. They&apos;ll be able to manage everything including deleting other admins."
+        }
+      },
+      "roles": {
+        "heading": "Assigned roles",
+        "description": "On this section, you can access lists of available roles and assign/unassign them to user's as needed.",
+        "buttons": {
+          "addRole": "Add role"
+        },
+        "select": {
+          "button": "Select role",
+          "empty": "No role found",
+          "input": {
+            "placeholder": "Search roles..."
+          }
+        }
+      },
+      "label": {
+        "heading": "New label",
+        "description": "Fill in the inputs and click save when you're done.",
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter name",
+          "description": "Give context on what this permission views or modifies"
+        },
+        "desc": {
+          "label": "Description",
+          "placeholder": "Enter description",
+          "description": "Give context to help labels understand this permission and the effect it will have"
+        },
+        "buttons": {
+          "cancel": "Cancel",
+          "save": "Save"
+        }
+      }
+    }
+  },
+  "applications": {
+    "layout": {
+      "title": "applications"
+    },
+    "buttons": {
+      "new": "New application"
+    },
+    "table": {
+      "columns": {
+        "name": "Name",
+        "domain": "Domain",
+        "description": "Description",
+        "createdAt": "Created Date",
+        "actions": {
+          "edit": "Edit",
+          "delete": "Delete"
+        }
+      },
+      "toolbar": {
+        "searchFilter": {
+          "input": {
+            "placeholder": "Filter results..."
+          }
+        },
+        "view": {
+          "view": "View",
+          "toggleColumns": {
+            "key": "Toggle columns",
+            "values": {
+              "name": "Name",
+              "domain": "Domain",
+              "description": "Description",
+              "createdAt": "Created Date",
+              "actions": "Actions"
+            }
+          }
+        }
+      }
+    },
+    "form": {
+      "headings": {
+        "new": "New application",
+        "update": "Application"
+      },
+      "description": "Provide required information and save when done",
+      "buttons": {
+        "save": "Save"
+      },
+      "tabs": {
+        "primaryInfomation": "primary infomation",
+        "callbackUrls": "callback urls",
+        "tokens": "tokens",
+        "permissions": "permissions"
+      },
+      "info": {
+        "heading": "Primary information",
+        "description": "This section includes the main fields required to create a new application.",
+        "clientId": {
+          "label": "Client Id",
+          "placeholder": "Enter client id",
+          "description": "This is a read-only unique identifier needed while completing the auth flow."
+        },
+        "secretId": {
+          "label": "Secret Id",
+          "placeholder": "Enter secret id",
+          "description": "Secret is read-only. We generate it upon creation of a new application."
+        },
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter name",
+          "description": "This field is fully representational. This is what the user will see."
+        },
+        "domain": {
+          "label": "Domain",
+          "placeholder": "Enter domain",
+          "description": "Where can be find this application?"
+        },
+        "desc": {
+          "label": "Description",
+          "placeholder": "Enter description",
+          "description": "Explain in a few words the purpose of this application."
+        }
+      },
+      "callbackUrls": {
+        "heading": "Callback URLs",
+        "description": "This section includes everything needed for the auth flow",
+        "applicationHomepageURI": {
+          "label": "Application homepage URI",
+          "placeholder": "Enter homepage URI",
+          "description": "The homepage link to your application. E.g. https://app.yourapp.com. Opens on logo-click and for other back link actions."
+        },
+        "applicationLoginURI": {
+          "label": "Application login URI",
+          "placeholder": "Enter login URI",
+          "description": "The default login route for resolving session issues. Allows users to redirect back to the application sign-in page via the /auth endpoint. E.g. https://app.yourapp.com/api/auth/login"
+        },
+        "allowedCallbackURL": {
+          "label": "Allowed callback URL",
+          "placeholder": "Enter callback URL",
+          "description": "These are the redirect URIs where the user can be sent after authenticating. Add each URL on a new line."
+        },
+        "allowedLogoutRedirectURLs": {
+          "label": "Allowed logout redirect URLs",
+          "placeholder": "Enter logout URL",
+          "description": "These are the URLs where the user can be sent after signing out. Add each URL on a new line."
+        }
+      },
+      "tokens": {
+        "heading": "Tokens",
+        "description": "Tokens are a way for apps to perform authorization and authentication processes without needing the user to re-enter their credentials.",
+        "howDoesTokenExpiryWorks": "How does token expiry works?",
+        "howDoesTokenExpiryWorksDescription": "Define how long tokens last before they need to be re-issued or refreshed. 3,600 seconds = 1 hour and 86,400 seconds = 1 day.",
+        "IdTokenExpiry": {
+          "label": "ID token expiry",
+          "placeholder": "Enter id token expiry",
+          "description": "ID tokens confirm user authentication and contain basic user profile data"
+        },
+        "accessTokenExpiry": {
+          "label": "Access token expiry",
+          "placeholder": "Enter access token expiry",
+          "description": "Access tokens confirm the app has been authorized. Use these to call an API or check if the client has access to a resource."
+        },
+        "refreshTokenExpiry": {
+          "label": "Refresh token expiry",
+          "placeholder": "Enter refresh token expiry",
+          "description": "Refresh tokens let the app get new access tokens without having to ask your users to log in again"
+        }
+      },
+      "permissions": {
+        "heading": "Application Permissions",
+        "description": "List and/or add permissions (action:resource) to application.",
+        "buttons": {
+          "addPermission": "Add permission"
+        },
+        "table": {
+          "columns": {
+            "key": "Key",
+            "name": "Name",
+            "description": "Description",
+            "actions": {
+              "edit": "Edit",
+              "delete": "Delete"
+            }
+          },
+          "empty": "There're nothing here. Add your first permission!"
+        },
+        "dialog": {
+          "title": "New permission",
+          "description": "Fill in the inputs and click save when you're done.",
+          "fields": {
+            "key": {
+              "label": "Key",
+              "placeholder": "Enter key",
+              "description": "Define how this key will be referenced in code"
+            },
+            "name": {
+              "label": "Name",
+              "placeholder": "Enter name",
+              "description": "Give context on what this permission views or modifies"
+            },
+            "description": {
+              "label": "Description",
+              "placeholder": "Enter description",
+              "description": "Give context to help users understand this permission and the effect it will have"
+            }
+          },
+          "buttons": {
+            "add": "Add",
+            "cancel": "Cancel"
+          }
+        }
+      }
+    }
+  },
+  "roles": {
+    "layout": {
+      "title": "roles"
+    },
+    "buttons": {
+      "new": "New role"
+    },
+    "table": {
+      "misc": {
+        "policies": "policies"
+      },
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "application": "Application",
+        "actions": {
+          "edit": "Edit",
+          "delete": "Delete"
+        }
+      },
+      "toolbar": {
+        "searchFilter": {
+          "input": {
+            "placeholder": "Filter results..."
+          }
+        },
+        "view": {
+          "view": "View",
+          "toggleColumns": {
+            "key": "Toggle columns",
+            "values": {
+              "name": "Name",
+              "description": "Description",
+              "application": "Application",
+              "actions": "Actions"
+            }
+          }
+        }
+      }
+    },
+    "form": {
+      "headings": {
+        "new": "New role",
+        "update": "Role"
+      },
+      "description": "Provide required information and save when done",
+      "buttons": {
+        "save": "Save"
+      },
+      "tabs": {
+        "primaryInfomation": "primary infomation",
+        "applicationPolicies": "application policies"
+      },
+      "info": {
+        "heading": "Primary information",
+        "description": "This section includes the main fields required to create a new role.",
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter name",
+          "description": "This field is fully representational. This is what the user will see."
+        },
+        "desc": {
+          "label": "Description",
+          "placeholder": "Enter description",
+          "description": "Explain in a few words the purpose of this application."
+        }
+      },
+      "policies": {
+        "heading": "Application Policies",
+        "description": "This section set-ups the access rules/policies for the associated application and its permissions.",
+        "selectApplication": {
+          "label": "Select application",
+          "placeholder": "Search application...",
+          "description": "",
+          "empty": "No application found."
+        }
+      }
+    }
+  }
+}
