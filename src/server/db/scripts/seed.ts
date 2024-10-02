@@ -10,7 +10,7 @@ import type {
 } from '../schema';
 
 import { env } from '@/env';
-import { hashPassord } from '@/server/utils/password';
+import { hashPassword } from '@/server/utils/password';
 import { faker } from '@faker-js/faker';
 import { eq } from 'drizzle-orm';
 import crypto from 'node:crypto';
@@ -180,7 +180,7 @@ const seedUsersToLabels = async () => {
 const seedUsers = async () => {
   await db.delete(users);
 
-  const passwordHash = await hashPassord('pass123!');
+  const passwordHash = await hashPassword('pass123!');
 
   const values = Array(100)
     .fill('')

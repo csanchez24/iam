@@ -6,7 +6,7 @@ import { parseError, stringifyError } from '@/auth/utils/error-response';
 import { parseSearchParams } from '@/auth/utils/parse-search-params';
 import { db } from '@/server/db';
 import { passwordResetRequests, users } from '@/server/db/schema';
-import { hashPassord } from '@/server/utils/password';
+import { hashPassword } from '@/server/utils/password';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
 
@@ -72,7 +72,7 @@ export async function POSTPasswordResetConfirm(req: NextRequest) {
     }
 
     await db.transaction(async (tx) => {
-      const passwordHash = await hashPassord(password);
+      const passwordHash = await hashPassword(password);
       await tx
         .update(users)
         .set({ password: passwordHash })

@@ -4,7 +4,7 @@ import { parseError, stringifyError } from '@/auth/utils/error-response';
 import { parseSearchParams } from '@/auth/utils/parse-search-params';
 import { db } from '@/server/db';
 import { authorizationCodes, authorizationRequests, users } from '@/server/db/schema';
-import { verifyPassord } from '@/server/utils/password';
+import { verifyPassword } from '@/server/utils/password';
 import { and, eq } from 'drizzle-orm';
 import { nanoid } from 'nanoid';
 import { z } from 'zod';
@@ -59,7 +59,7 @@ export async function POSTLogin(req: NextRequest) {
     }
 
     // Validate user's password
-    const verified = await verifyPassord(password, user.password);
+    const verified = await verifyPassword(password, user.password);
     if (!verified) {
       throw stringifyError({ message: `Unable to verify credentials.`, status: 400 });
     }

@@ -2,7 +2,7 @@ import { db } from '@/server/db';
 import { users, usersToLabels, usersToRoles } from '@/server/db/schema';
 import { genTsRestErrorRes } from '@/server/utils/gen-ts-rest-error';
 import { createPaginator } from '@/server/utils/paginate';
-import { hashPassord } from '@/server/utils/password';
+import { hashPassword } from '@/server/utils/password';
 import { tsr } from '@ts-rest/serverless/next';
 import { eq, sql } from 'drizzle-orm';
 import { contract } from '../contracts';
@@ -63,7 +63,7 @@ export const user = tsr.router(contract.user, {
   create: async ({ body: { data } }) => {
     try {
       const { password, roles, labels, ...values } = data;
-      const passwordHash = await hashPassord(password);
+      const passwordHash = await hashPassword(password);
       const newUser = await db.transaction(async (tx) => {
         const [{ insertId: userId }] = await tx
           .insert(users)
@@ -94,7 +94,7 @@ export const user = tsr.router(contract.user, {
   update: async ({ params: { id }, body: { data } }) => {
     try {
       const { password, roles, labels, ...values } = data;
-      const passwordHash = password ? await hashPassord(password) : undefined;
+      const passwordHash = password ? await hashPassword(password) : undefined;
       const updatedUser = await db.transaction(async (tx) => {
         await tx
           .update(users)
