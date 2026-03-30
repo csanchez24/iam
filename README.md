@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IAM
 
-## Getting Started
+Centralized identity and access management platform for multi-application environments.
 
-First, run the development server:
+This project is designed to provide a reusable authentication and access-control layer for business applications. It focuses on centralized login, role and permission management, application-based access control, API clients, and audit visibility.
+
+## Overview
+
+IAM works as a shared access layer for connected applications. Instead of each product handling authentication and authorization separately, this platform centralizes user access, security rules, and traceability in one place.
+
+## Core features
+
+- Centralized authentication
+- Users, roles, and permissions
+- Application-based access control
+- API clients for machine-to-machine integrations
+- Audit records for security and traceability
+
+## Why I built it
+
+I built this project as a reusable foundation for multi-application business environments. The goal is to avoid duplicated authentication logic across products and create a more structured, secure, and maintainable way to manage access.
+
+## Tech stack
+
+- TypeScript
+- Next.js
+- React
+- Tailwind CSS
+- Node.js
+- PostgreSQL
+- Drizzle ORM
+- Zod
+
+## Architecture direction
+
+The platform is designed around a central IAM service that can support multiple applications. Each application can define its own access scope while still relying on a shared authentication layer.
+
+Main ideas behind the architecture:
+
+- one central identity source
+- application-scoped roles and permissions
+- secure token-based access
+- auditability for important actions
+- reusable foundation for future products
+
+## Current status
+
+This project is in active development. The current direction includes authentication flows, application management, role and permission handling, API client support, and audit-related functionality.
+
+## Local development
 
 ```bash
+git clone <repo-url>
+cd iam
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
