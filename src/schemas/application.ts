@@ -1,0 +1,100 @@
+import { Contract } from '@/server/api/contracts';
+import {
+  createIncludeSchema,
+  createListQuerySchema,
+  StringOperatorsSchema,
+  UUIDOperatorsSchema,
+} from '@/server/utils/query/schemas';
+import { ClientInferResponseBody } from '@ts-rest/core';
+import { z } from 'zod';
+
+// ============================================
+// WHERE
+// ============================================
+
+const ApplicationWhereFieldsSchema = z
+  .object({
+    id: z.union([z.string().uuid(), UUIDOperatorsSchema]).optional(),
+    name: z.union([z.string().min(1), StringOperatorsSchema]).optional(),
+    slug: z.union([z.string().min(1), StringOperatorsSchema]).optional(),
+    status: z.enum(['active', 'suspended']).optional(),
+  })
+  .strict();
+
+// ============================================
+// SORT
+// ============================================
+
+const APPLICATION_SORT_FIELDS = ['id', 'name', 'slug', 'status', 'createdAt', 'updatedAt'] as const;
+
+// ============================================
+// INCLUDE
+// ============================================
+
+const APPLICATION_INCLUDE_OPTIONS = ['permissions'] as const;
+const ApplicationIncludeSchema = createIncludeSchema(APPLICATION_INCLUDE_OPTIONS);
+
+// ============================================
+// QUERY SCHEMAS
+// ============================================
+
+export const ListApplicationsQuerySchema = createListQuerySchema({
+  whereFields: ApplicationWhereFieldsSchema,
+  sortFields: APPLICATION_SORT_FIELDS,
+  includeFields: APPLICATION_INCLUDE_OPTIONS,
+  sortMax: 3,
+});
+
+export type ListApplicationsQuery = z.infer<typeof ListApplicationsQuerySchema>;
+
+export const GetApplicationQuerySchema = z.object({
+  include: ApplicationIncludeSchema,
+});
+
+// ============================================
+// MUTATIONS
+// ============================================
+
+export const PermissionInputSchema = z.object({
+  name: z.string().min(1, 'Nombre es requerido').max(45, 'Máximo 45 caracteres'),
+  resource: z.string().min(1, 'Recurso es requerido').max(45, 'Máximo 45 caracteres'),
+  action: z.string().min(1, 'Acción es requerida').max(45, 'Máximo 45 caracteres'),
+  description: z.string().max(500, 'Máximo 500 caracteres').optional(),
+});
+
+export type PermissionInput = z.infer<typeof PermissionInputSchema>;
+
+export const CreateApplicationBodySchema = z.object({
+  name: z.string().min(1).max(255),
+  slug: z.string().min(1).max(100),
+  description: z.string().max(500).optional(),
+  status: z.enum(['active', 'suspended']),
+  clientType: z.enum(['public', 'confidential']),
+  clientId: z.string().min(1),
+  clientSecret: z.string().min(1),
+  authCodeExp: z.number(),
+  accessTokenExp: z.number(),
+  refreshTokenExp: z.number(),
+  clientJwtSecret: z.string().min(1),
+  logo: z.string().nullable().optional(),
+  image: z.string().nullable().optional(),
+  imageAd: z.string().nullable().optional(),
+  homeUrl: z.string().url().optional(),
+  logoutUrl: z.array(z.string().url()).min(1),
+  callbackUrls: z.array(z.string().url()).min(1),
+  permissions: PermissionInputSchema.array().optional(),
+  mfaEnabled: z.boolean().optional(),
+});
+
+export const UpdateApplicationBodySchema = CreateApplicationBodySchema.partial();
+
+// ============================================
+// TYPES
+// ============================================
+
+export type ApplicationPaginated = ClientInferResponseBody<Contract['application']['list'], 200>;
+
+export type Application = ApplicationPaginated['data'][number];
+
+export type ApplicationSortField = (typeof APPLICATION_SORT_FIELDS)[number];
+export type ApplicationInclude = (typeof APPLICATION_INCLUDE_OPTIONS)[number];

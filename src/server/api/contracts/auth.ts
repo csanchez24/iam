@@ -1,0 +1,176 @@
+import {
+  BrandingQuerySchema,
+  BrandingResponseSchema,
+  ForgotPasswordBodySchema,
+  ForgotPasswordResponseSchema,
+  LoginBodySchema,
+  LoginResponseSchema,
+  MeResponseSchema,
+  MfaResendBodySchema,
+  MfaResendResponseSchema,
+  MfaVerifyBodySchema,
+  MfaVerifyResponseSchema,
+  OauthTokenBodySchema,
+  OauthTokenResponseSchema,
+  ResetPasswordBodySchema,
+  ResetPasswordResponseSchema,
+  RevokeTokenBodySchema,
+} from '@/schemas/auth';
+import { TsRestErrorSchema } from '@/schemas/ts-rest';
+import { initContract } from '@ts-rest/core';
+
+const c = initContract();
+import { z } from 'zod';
+
+export const auth = c.router(
+  {
+    login: {
+      method: 'POST',
+      path: '/login',
+      summary: 'Login to IAM portal with email/password',
+      body: LoginBodySchema,
+      responses: {
+        200: LoginResponseSchema,
+        400: TsRestErrorSchema,
+        401: TsRestErrorSchema,
+        429: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+
+    me: {
+      method: 'GET',
+      path: '/me',
+      summary: 'Get current authenticated user + account context',
+      query: z
+        .object({
+          appSlug: z.string().optional(),
+        })
+        .optional(),
+      responses: {
+        200: MeResponseSchema,
+        400: TsRestErrorSchema,
+        401: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+
+    logout: {
+      method: 'POST',
+      path: '/logout',
+      summary: 'Logout from IAM portal (invalidate session)',
+      body: c.noBody(),
+      responses: {
+        204: c.noBody(),
+        400: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+
+    oauthToken: {
+      method: 'POST',
+      path: '/token',
+      summary: 'Exchange authorization code or refresh token for access token',
+      body: OauthTokenBodySchema,
+      responses: {
+        200: OauthTokenResponseSchema,
+        400: TsRestErrorSchema,
+        401: TsRestErrorSchema,
+        429: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+    forgotPassword: {
+      method: 'POST',
+      path: '/forgot-password',
+      summary: 'Request password reset email',
+      body: ForgotPasswordBodySchema,
+      responses: {
+        200: ForgotPasswordResponseSchema,
+        400: TsRestErrorSchema,
+        429: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+    resetPassword: {
+      method: 'POST',
+      path: '/reset-password',
+      summary: 'Reset password using reset token',
+      body: ResetPasswordBodySchema,
+      responses: {
+        200: ResetPasswordResponseSchema,
+        400: TsRestErrorSchema,
+        429: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+    changePassword: {
+      method: 'POST',
+      path: '/change-password',
+      body: z.object({
+        currentPassword: z.string().min(8),
+        newPassword: z.string().min(8),
+      }),
+      responses: {
+        204: c.noBody(),
+        400: TsRestErrorSchema,
+        429: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+
+    revoke: {
+      method: 'POST',
+      path: '/revoke',
+      summary: 'Revoke a refresh token (RFC 7009)',
+      body: RevokeTokenBodySchema,
+      responses: {
+        200: c.noBody(),
+        401: TsRestErrorSchema,
+        429: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+
+    mfaVerify: {
+      method: 'POST',
+      path: '/mfa/verify',
+      summary: 'Verify MFA code and complete login',
+      body: MfaVerifyBodySchema,
+      responses: {
+        200: MfaVerifyResponseSchema,
+        400: TsRestErrorSchema,
+        401: TsRestErrorSchema,
+        429: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+
+    mfaResend: {
+      method: 'POST',
+      path: '/mfa/resend',
+      summary: 'Resend MFA code',
+      body: MfaResendBodySchema,
+      responses: {
+        200: MfaResendResponseSchema,
+        400: TsRestErrorSchema,
+        429: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+
+    branding: {
+      method: 'GET',
+      path: '/branding',
+      summary: 'Get branding info for auth pages (public endpoint)',
+      query: BrandingQuerySchema,
+      responses: {
+        200: BrandingResponseSchema,
+        400: TsRestErrorSchema,
+        404: TsRestErrorSchema,
+        500: TsRestErrorSchema,
+      },
+    },
+  },
+  { pathPrefix: '/auth' }
+);
